@@ -3,9 +3,17 @@ import message from '../lang/messages/en/user.js';
 const notes = document.getElementById("note-container")
 const add = document.getElementById("add")
 
+const sleep = (ms) => new Promise(res => setTimeout(res, ms));
+
 class Writer {
     constructor() {
         this.id = 0;
+    }
+
+    showUpdateTime() {
+        const updateMessage = document.createElement('p');
+        updateMessage.textContent = message.writerUpdate + new Date().toLocaleTimeString();
+        notes.appendChild(updateMessage);
     }
 
     addNote() {
@@ -66,6 +74,9 @@ class Writer {
     showAllNotes() {
         const length = localStorage.length;
         this.id = length;
+
+        this.showUpdateTime();
+
         this.checkEmpty();
 
         for (let i = 0; i < length; i++) {
