@@ -1,4 +1,9 @@
 import message from '../lang/messages/en/user.js';
+
+document.title = message.title;
+document.getElementById('header-reader').textContent = message.reader;
+document.getElementById('back').textContent = message.back;
+
 const localStorageList = document.getElementById('note-container');
 const sleep = (ms) => new Promise(res => setTimeout(res, ms));
 
@@ -23,7 +28,7 @@ class Reader {
 
 window.addEventListener('DOMContentLoaded', () => {
     localStorageList.innerHTML = '';
-    
+
     const reader = new Reader();
     reader.showUpdateTime();
 

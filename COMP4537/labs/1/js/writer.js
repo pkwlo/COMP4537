@@ -1,5 +1,10 @@
 import message from '../lang/messages/en/user.js';
 
+document.title = message.title;
+document.getElementById('header-writer').textContent = message.writer;
+document.getElementById('add').textContent = message.addButton;
+document.getElementById('back').textContent = message.back;
+
 const notes = document.getElementById("note-container")
 const add = document.getElementById("add")
 
