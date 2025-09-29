@@ -1,5 +1,7 @@
 const http = require('http');
 const fs = require('fs');
+const PORT = process.env.PORT || 3000;
+
 let dateTime = require('./modules/utils');
 let message = require('./lang/messages/en/user');
 
@@ -46,6 +48,6 @@ http.createServer((req, res) => {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('404 Not Found\n');
     }
-}).listen(3000, () => {
-    console.log('Server running at http://localhost:3000/');
+}).listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}/`);
 });
